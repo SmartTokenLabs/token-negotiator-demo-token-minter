@@ -36,7 +36,7 @@ contract STLTestNFTs is ERC721, ERC721Enumerable, ERC721URIStorage, ERC721Burnab
         _setTokenURI(tokenId, uri);
     }
 
-    function updateTokenURI(uint256 tokenId, string memory uri) public {
+    function updateTokenURI(uint256 tokenId, string memory uri) public onlyRole(MINTER_ROLE) {
         _setTokenURI(tokenId, uri);
         emit TokenURIUpdated(tokenId, uri);
     }
